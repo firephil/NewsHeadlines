@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup as soup
 import requests
 from typing import List
 import os
+import feedparser
 
 # use a user agent header to avoid Blocking from web servers
 headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
@@ -18,6 +19,10 @@ class Article:
     def __repr__(self):
 
         return f"<Article Title: {self.title}  Text: {self.text} Link: {self.link} Date: {self.date}>"
+    
+    def getText(self) -> str:
+        
+        return f"{self.title} \n {self.text} \n {self.link} \n {self.date}"
 
 
 def scrape(url) -> soup:
@@ -52,3 +57,18 @@ def savePage(page:soup, path: str):
     
     with open(path, 'w') as file:
         file.write(page.prettify())
+
+def getRSS(url) ->List[Article]:
+    feed = feedparser.parse(url)
+   
+    ls:List[Article] = []
+
+    for entry in feed.entries:
+        article = Article(entry.title, entry.summary,entry.link,entry.published)
+        ls.append(article)
+
+    return ls
+
+
+if( __name__ == '__main__'):
+   pass

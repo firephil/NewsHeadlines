@@ -1,4 +1,4 @@
-
+# use rss feed https://feeds.feedburner.com/TheHackersNews
 # use explicit import for documentation
 
 from fire_scrapy import Article
