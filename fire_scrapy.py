@@ -10,19 +10,20 @@ headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 
 class Article:
 
-    def __init__(self, title = None , text = None, link = None, date= None):
+    def __init__(self, title = None , text = None, link = None, date= None, categ = None):
         self.title = title
         self.text = text
         self.link = link
         self.date = date
+        self.categ = categ
 
     def __repr__(self):
 
-        return f"<Article Title: {self.title}  Text: {self.text} Link: {self.link} Date: {self.date}>"
+        return f"<Article Title: {self.title}  Text: {self.text} Link: {self.link} Date: {self.date} Categ {self.categ}>"
     
     def getText(self) -> str:
         
-        return f"{self.title} \n {self.text} \n {self.link} \n {self.date}"
+        return f"{self.title}\n{self.text}\n{self.link}\n{self.date}\n{self.categ}"
 
 
 def scrape(url) -> soup:
@@ -64,7 +65,7 @@ def getRSS(url) ->List[Article]:
     ls:List[Article] = []
 
     for entry in feed.entries:
-        article = Article(entry.title, entry.summary,entry.link,entry.published)
+        article = Article(entry.title, entry.summary,entry.link,entry.published,entry.category)
         ls.append(article)
 
     return ls
