@@ -3,4 +3,5 @@ requests
 bs4
 feedparser
 ollama
-hallo
+halo
+#env/scripts/activate

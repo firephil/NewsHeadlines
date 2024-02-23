@@ -25,7 +25,6 @@ class Article:
         
         return f"{self.title}\n{self.text}\n{self.link}\n{self.date}\n{self.categ}"
 
-
 def scrape(url) -> soup:
     
     try :
