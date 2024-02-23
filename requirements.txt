@@ -2,3 +2,4 @@ joblib
 requests
 bs4
 feedparser
+ollama
