@@ -3,3 +3,4 @@ requests
 bs4
 feedparser
 ollama
+hallo

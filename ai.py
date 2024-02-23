@@ -1,10 +1,17 @@
 import ollama
+from halo import Halo
 
-def send():
-    response = ollama.chat(model='tinylama', messages=[
+@Halo(text='Loading', spinner='dots')
+def run():
+    response = ollama.chat(model='deepseek-coder', messages=[
     {
         'role': 'user',
-        'content': 'Why is the sky blue?',
+        'content': 'the date today',
     },
     ])
-    ollama.list()
+    return response
+
+
+res = run()
+
+print(res)
