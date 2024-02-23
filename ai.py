@@ -4,7 +4,7 @@ import thehackernews_com
 
 @Halo(text='Loading', spinner='dots')
 def run(text):
-    response = ollama.chat(model='mistral', messages=[
+    response = ollama.chat(model='tinyllama', messages=[
     {
         'role': 'assistant',
         'content': f'{text}',
@@ -12,10 +12,11 @@ def run(text):
     ])
     return response
 
-article = thehackernews_com.get()[0].getText
+article = thehackernews_com.get()[0].getText()
+print(article)
 
-text = "write it in a different style: " + "f{article}"
+text = "write it in a different style, the following article: " + "f{article}"
 
-res = run(text)
+#res = run(text)
 
-print(res)
+#print(res)

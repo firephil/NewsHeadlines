@@ -22,7 +22,7 @@ def getRSS(url) ->List[Article]:
 
 def save():
     ls = get()
-    with open("hackernews.com.pickle", "wb") as f:
+    with open("output/hackernews.com.pickle", "wb") as f:
         pickle.dump(ls, f)
     f.close()
 
