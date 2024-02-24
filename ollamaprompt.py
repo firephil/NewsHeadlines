@@ -18,10 +18,10 @@ def runResponse(promptText):
 
 article = thehackernews_com.get()[0]
 prompt = f"Make a summary of the following: {article.text}"
-#print(runResponse(prompt))
+print(prompt)
 
 @Halo(text='Loading', spinner='dots')
 def run():
     response = generate('tinyllama',prompt)
     print(response['response'])
-run()
+#run()

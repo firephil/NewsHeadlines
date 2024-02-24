@@ -1,8 +1,10 @@
 from fire_scrapy import Article
 import feeder
+
 from typing import List
 
-URL = "https://feeds.feedburner.com/TheHackersNews"
+URL = "https://www.darkreading.com/rss.xml"
+
 
 def get() -> List[Article]:
     return feeder.getRSSNoCateg(URL)

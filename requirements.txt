@@ -4,4 +4,5 @@ bs4
 feedparser
 ollama
 halo
+dateparser
 #env/scripts/activate
