@@ -1,18 +1,15 @@
 from fire_scrapy import Article
-from fire_scrapy import scrape
-from fire_scrapy import getRSS
+import feeder
 from typing import List
 import pickle
 
 URL = "https://www.protothema.gr/rss"
 
 def get()->List[Article]:
-    return getRSS(URL)
+    return feeder.getRSS(URL)
 
-def save():
-    ls = get()
-    with open("protothema.pickle", "wb") as f:
-        pickle.dump(ls, f)
+def saveToFile():
+    feeder.save(URL,get())
 
 if( __name__ == '__main__'):
-    save()
+    saveToFile()

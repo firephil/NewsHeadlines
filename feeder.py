@@ -27,6 +27,7 @@ def getRSSNoCateg(url) ->List[Article]:
 
     return ls
 
+# save and name based on the url domain
 def save(URL: str,articleList : List[Article]):
     t = urlparse(URL).netloc
     u = '.'.join(t.split('.')[-2:])
