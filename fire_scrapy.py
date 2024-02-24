@@ -4,26 +4,10 @@ import requests
 from typing import List
 import os
 import feedparser
+from news import Article
 
 # use a user agent header to avoid Blocking from web servers
 headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
-
-class Article:
-
-    def __init__(self, title = None , text = None, link = None, date= None, categ = None):
-        self.title = title
-        self.text = text
-        self.link = link
-        self.date = date
-        self.categ = categ
-
-    def __repr__(self):
-
-        return f"<Article Title: {self.title}  Text: {self.text} Link: {self.link} Date: {self.date} Categ {self.categ}>"
-    
-    def getText(self) -> str:
-        
-        return f"{self.title}\n{self.text}\n{self.link}\n{self.date}\n{self.categ}"
 
 def scrape(url) -> soup:
     
