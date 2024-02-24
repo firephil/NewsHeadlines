@@ -15,6 +15,6 @@ def run(promptText):
 
 article = thehackernews_com.get()[0]
 
-prompt = "Make a summary of the following:" + f"{article.text}"
+prompt = f"Make a summary of the following: {article.text}"
 
 print(run(prompt))
