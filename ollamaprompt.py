@@ -3,18 +3,18 @@ from halo import Halo
 import thehackernews_com
 
 @Halo(text='Loading', spinner='dots')
-def run(text):
-    response = ollama.chat(model='llama2-uncensored', messages=[
+def run(promptText):
+    print(promptText)
+    response = ollama.chat(model='tinyllama', messages=[
     {
         'role': 'user',
-        'content': f'{text}',
+        'content': promptText,
     },
     ])
     return response
 
 article = thehackernews_com.get()[0]
-print(article.title)
 
-prompt = "write the following article in a different style : " + "f{article.title}"
+prompt = "Make a summary of the following:" + f"{article.text}"
 
 print(run(prompt))
