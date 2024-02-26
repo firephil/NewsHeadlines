@@ -5,4 +5,5 @@ feedparser
 ollama
 halo
 dateparser
+#pytrends
 #env/scripts/activate
